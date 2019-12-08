@@ -1,23 +1,24 @@
 ﻿
 var 
   x, N, sign: integer;
-  expression,factorial, powerOfX: real;
+  expression, factorial, powerOfX: real;
 begin 
   readln(X, N);
-  expression := 1;
+  expression := 0;
   factorial := 1;
   powerOfX := 1;
   sign := 1;
   
-  for var i := 1 to N do
+  for var i := 1 to 2 * N + 1 do
+  begin
+    factorial *= i; 
     if i mod 2 <> 0 then
-    begin;
-      factorial *= i 
-   
+    begin
+      powerOfX *= X;
+      expression += sign * powerOfX / factorial;
+      sign *= -1;
     end;
-    sign *= -1;
-    powerOfX *= X;
-    expression += sign * powerOfX / factorial;
+  end;
   writeln(expression);
 end.
   

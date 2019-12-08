@@ -1,9 +1,11 @@
 ﻿var
   number1, number2, i: real;
-  n: integer;
+  N: integer;
+  
 begin
-  while n > 0 do
+  while N > 0 do
   begin
   writeln(N mod 10);
   i := N div 10;
   end;
+end.
