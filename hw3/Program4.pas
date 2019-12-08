@@ -2,22 +2,23 @@
 //(целое число).
 
 var
-  N, r,l, sum: integer;
+  N, squaredNumber, sum: integer;
+  
 begin
   writeln('введите целое число N');
   readln(N);
-  r:=sqr(n);
+  
   if N > 0 then 
   begin
-    for var i := 1 to N do
+    for var i := N to 2 * N do
     begin
-    sum := N + i;
-    l := sqr (sum);
-    r := r + l; 
+      squaredNumber := sqr(i);
+      sum += squaredNumber; 
     end;
-    writeln(r);
+    writeln(sum);
   end
-  else writeln('введены неверные числа');
+  else 
+    writeln('введены неверные числа');
 end.
   
   

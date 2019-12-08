@@ -2,20 +2,24 @@
 // а в B — большее. Вывести новые значения переменных A и B.
 
 var 
-  A,B: real;
+  A, B: real;
+  
 begin
   writeln('введите два вещеcтвенных числа');
   readln(A, B);
+  
   if A < B then
   begin
-    writeln('A = ',A);
+    writeln('A = ', A);
     writeln('B = ', B);
   end;
+  
   if A > B then
   begin
-    writeln('A = ',B);
-    writeln('B = ',A);
+    writeln('A = ', B);
+    writeln('B = ', A);
   end;
+  
   if A = B then
     writeln('эти числа равны');
 end.
