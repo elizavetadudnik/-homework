@@ -8,7 +8,7 @@ using namespace std;
 int task1();
 int task2();
 
- int maiiin()
+ int main()
 {
     setlocale(LC_ALL, "Russian");
     task1();
@@ -73,5 +73,5 @@ int task2();
                 sum += 1;
             }
             count << sum << endle;
-            return 0
+            return 0;
         }
