@@ -9,7 +9,7 @@ int task1();
 int task2();
 int task3();
 
- int maiiin()
+ int main()
 {
     setlocale(LC_ALL, "Russian");
     task1();
