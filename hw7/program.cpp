@@ -21,7 +21,7 @@ int task3();
 
 
     {
-        int task1()
+        33
 
         int N, i;
         double A, PowerOfA, sum;
