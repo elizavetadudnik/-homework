@@ -1,55 +1,64 @@
 ﻿
 using namespace std;
 #include <iostream>
+#include <ctime>
+
+void task1();
+void task2();
 
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-    int task1();
-	void task2();
+    // task1();
+	task2();
 	return 0;
 }
 
 // проверить, явл. ли слово палиндромом.
 
-int task1;
+void task1()
 {
-	char symbols[size];
 	int const size = 5;
+	char symbols[size];
 
 	for (int i = 0; i < size; ++i)
 	{
 		cin >> symbols[i];
 	}
 
+	bool isPalindrom = true;
+
 	for (int i = 0; i < size; ++i)
 	{
-		cout << symbols[i];
-
-		if (symbols[i] == symbols[6 - i])
+		if (symbols[i] != symbols[size - 1 - i])
 		{
-			cout << "является палиндромом" << endle;
+			isPalindrom = false;
+			break;
 		}
+	}	
+
+	if (isPalindrom)
+	{
+		cout << "Слово палиндром" << endl;
 	}
-		else
-		{
-			cout << "не является палиндромом" << endl;
-		}
-
-	
+	else
+	{
+		cout << "Слово не палиндром" << endl;
+	}
 }
 
 // Дается последовательность чисел. Нужно определить, сколько есть пар чисел, в которых есть хотя бы одно число, оканчивающееся на "3".
 
+void task2()
 {
-void task2
+	srand(time(NULL));
 
 	int const size = 5;
 	int arr[size];
 
 	for (int i = 0; i < size; ++i)
 	{
-		arr[i] = rand() % 101 - 100;
+		arr[i] = rand() % 201 - 100;
 	}
 
 	for (int i = 0; i < size; ++i)
@@ -63,7 +72,7 @@ void task2
 
 	for (int i = 0; i < size - 1; ++i)
 	{
-		if (arr[i] mod 3 = 0)
+		if ((arr[i] % 3 == 0) && (arr[i + 1] % 3 == 0))
 		{
 			++countPairs;
 		}
