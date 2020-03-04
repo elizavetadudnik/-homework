@@ -9,17 +9,17 @@ struct Parabola
 	// метод
 	void setA(int coeffA)
 	{
-		int a;
+		a = coeffA;
 	}
 
-	void setB(int coeffB)
+	void setB(int coeffB) 
 	{
-		int b;
+		b = coeffB;
 	}
 
 	void getC(int coeffC)
 	{
-		int c;
+		c = coeffC;
 	}
 
 	void printParabola()
@@ -27,7 +27,7 @@ struct Parabola
 		cin >> a;
 		cin >> b;
 		cin >> c;
-		cout << a << 'x * x + ' << b << 'x + ' << c << endl;
+		cout << a << "x * x + " << b << "x + " << c << endl;
 	}
 
 	// поля
@@ -41,20 +41,21 @@ struct point
 {
 	bool pointOfParabola(int x, int y)
 	{
-		if (!Parabola)
+		bool pointOfParab = false;
+		if (y == a * x * x + b * x + c)
 		{
-			pointOfParabola = false
+			pointOfParab = true;
 		}
 
-		pointOfParabola = true;
+		return pointOfParab;
 	}
 
 
 
 
-int main()
-{
-	
-}
+	int main()
+	{
+
+	}
 
 
