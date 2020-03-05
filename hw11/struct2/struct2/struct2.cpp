@@ -9,6 +9,12 @@ struct Parabola
 	// метод
 	void setA(int coeffA)
 	{
+		if (coeffA == 0)
+		{
+			cout << "It is not parabola!" << endl;
+			return;
+		}
+
 		a = coeffA;
 	}
 
@@ -17,28 +23,39 @@ struct Parabola
 		b = coeffB;
 	}
 
-	void getC(int coeffC)
+	void setC(int coeffC)
 	{
 		c = coeffC;
 	}
 
 	void printParabola()
 	{
-		cin >> a;
-		cin >> b;
-		cin >> c;
-		cout << a << "x * x + " << b << "x + " << c << endl;
+		if (a == 1) 
+		{
+			cout << "x * x";
+		}
+		else
+		{
+			cout << a << "x * x";
+		}
+
+		if (b == 1)
+		{
+			cout << " + x";
+		}
+		else if (b != 0)
+		{
+			cout << " + " << b << "x";
+		}
+
+		if (c != 0)
+		{
+			cout << " + " << c;
+		}
+
+		cout << endl;
 	}
 
-	// поля
-	private:
-	int a = 1;
-	int b = 0;
-	int c = 0;
-};
-
-struct point
-{
 	bool pointOfParabola(int x, int y)
 	{
 		bool pointOfParab = false;
@@ -50,12 +67,38 @@ struct point
 		return pointOfParab;
 	}
 
+	// поля
+	private:
+	int a = 1;
+	int b = 0;
+	int c = 0;
+};
 
+int main()
+{
+	setlocale(LC_ALL, "Russian");
 
+	Parabola parabola;
 
-	int main()
+	parabola.setA(1);
+	parabola.setB(0);
+	parabola.setC(0);
+	parabola.printParabola();
+
+	int x = 0;
+	int y = 0;
+
+	cout << "Задайте координаты точки на плоскости" << endl;
+	cin >> x >> y;
+
+	if (parabola.pointOfParabola(x, y))
 	{
-
+		cout << "Точка (" << x << ", " << y << ") принадлежит параболе" << endl;
 	}
+	else
+	{
+		cout << "Точка (" << x << ", " << y << ") не принадлежит параболе" << endl;
+	}
+}
 
 
