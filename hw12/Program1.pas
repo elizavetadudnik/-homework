@@ -2,14 +2,16 @@
 // минимальным в своем столбце. Если такой элемент отсутствует, вывести 0.
 const 
   rowLength = 3;
-  columnLength = 4;
+  columnLength = 3;
   
 var 
   arr: array[1..rowLength, 1..columnLength] of integer;
-  maxColumn, maxRow: integer;
+  minColumn, maxRow: integer;
+  elementExists: boolean;
   
 begin
-  maxColumn := integer.MinValue;
+  elementExists := false;
+  minColumn := integer.MaxValue;
   maxRow := integer.MinValue;
   for var i := 1 to rowLength do
   begin
@@ -18,7 +20,7 @@ begin
       arr[i, j] := random(1, 9);
     end;
   end;
-    
+  
   for var i := 1 to rowLength do
   begin
     for var j := 1 to columnLength do
@@ -28,22 +30,33 @@ begin
     writeln();
   end;
   
-  for var i := 1 to columnLength do
+  for var i := 1 to rowLength do
   begin
-    for var j := 1 to rowLength do
+    for var j := 1 to columnLength do
     begin
-      if arr[i, j] > maxColumn then
-      maxColumn := arr[i, j];
+      for var k := 1 to columnLength do
+      begin
+        if arr[i, k] > maxRow then
+          maxRow := arr[i, k];
+      end;
+      
+      for var k := 1 to rowLength do
+      begin
+        if arr[k, j] < minColumn then
+          minColumn := arr[k, j];
+      end;
+      
+      if (arr[i, j] = maxRow) and (arr[i, j] = minColumn) then
+      begin
+        writeln(arr[i, j]);
+        elementExists := true;
+      end;     
     end;
-    writeln(maxColumn);
+    
+    maxRow := integer.MinValue;
+    minColumn := integer.MaxValue;
   end;
-  for var j := 1 to rowLength do
-   begin
-    for var i := 1 to columnLength do
-    begin 
-      if arr[j, i] > maxRow then
-      maxRow := arr[i, j];
-    end;
-    writeln(maxRow);
-  end;
+  
+  if not elementExists then
+    writeln('такого элемент нетттт');
 end.
